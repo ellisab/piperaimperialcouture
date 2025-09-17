@@ -46,7 +46,11 @@ export function Navigation() {
           {/* Shopping bag and mobile menu */}
           <div className="flex items-center space-x-2 sm:space-x-4">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" className="text-foreground hover:text-accent">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-foreground hover:bg-transparent hover:text-foreground active:bg-transparent active:text-foreground dark:hover:bg-transparent dark:hover:text-foreground dark:active:bg-transparent dark:active:text-foreground"
+            >
               <ShoppingBag className="h-5 w-5" />
             </Button>
 
