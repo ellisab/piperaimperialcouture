@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
 export function CollectionsSection() {
@@ -63,12 +62,6 @@ export function CollectionsSection() {
                 </h3>
                 <p className="text-muted-foreground mb-3 text-pretty">{item.description}</p>
                 <p className="text-lg font-semibold text-foreground mb-4">{item.price}</p>
-                <Button
-                  variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent"
-                >
-                  View Collection
-                </Button>
               </CardContent>
             </Card>
           ))}
