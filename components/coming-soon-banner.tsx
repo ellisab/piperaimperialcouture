@@ -16,7 +16,7 @@ export function ComingSoonBanner() {
             priority
           />
         </div>
-        <p className="text-xs font-medium tracking-[0.2em] text-[#d4af37] sm:text-sm sm:tracking-[0.24em]">
+        <p className="-translate-y-[5px] text-xs font-medium tracking-[0.2em] text-[#d4af37] sm:text-sm sm:tracking-[0.24em]">
           Coming soon... <span className="font-semibold">collab with Ferguson</span>
         </p>
       </div>
