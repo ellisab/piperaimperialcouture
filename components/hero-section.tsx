@@ -48,9 +48,8 @@ export function HeroSection() {
           </Button>
           <Button
             asChild
-            variant="outline"
             size="lg"
-            className="border-black bg-black text-white px-8 py-3 text-lg font-semibold transition-colors hover:bg-black/90 hover:text-white"
+            className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 text-lg font-medium"
           >
             <Link href="/#story">Our Story</Link>
           </Button>
