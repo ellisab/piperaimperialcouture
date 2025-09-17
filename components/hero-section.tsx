@@ -6,7 +6,7 @@ export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with subtle pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/20 to-muted"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f9f2e2] via-[#f4e8d6] to-[#f0ddc5] dark:from-[#120d09] dark:via-[#15100c] dark:to-[#1a1410]"></div>
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
