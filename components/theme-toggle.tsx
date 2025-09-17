@@ -27,7 +27,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="relative text-foreground hover:text-accent"
+      className="relative text-foreground hover:bg-transparent hover:text-foreground active:bg-transparent active:text-foreground dark:hover:bg-transparent dark:hover:text-foreground dark:active:bg-transparent dark:active:text-foreground"
       aria-label="Toggle theme"
     >
       <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
