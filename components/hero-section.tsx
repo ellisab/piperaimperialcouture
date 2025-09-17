@@ -47,9 +47,10 @@ export function HeroSection() {
             <Link href="/products#collections">Explore Collections</Link>
           </Button>
           <Button
+            asChild
             variant="outline"
             size="lg"
-            className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-3 text-lg font-medium bg-transparent"
+            className="border-black bg-black text-white px-8 py-3 text-lg font-semibold transition-colors hover:bg-black/90 hover:text-white"
           >
             <Link href="/#story">Our Story</Link>
           </Button>
