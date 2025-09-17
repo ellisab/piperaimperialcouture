@@ -30,6 +30,9 @@ export function Navigation() {
               <Link href="/products" className="text-foreground hover:text-accent transition-colors duration-200">
                 Collections
               </Link>
+              <Link href="/#story" className="text-foreground hover:text-accent transition-colors duration-200">
+                Our Story
+              </Link>
               <Link href="/#about" className="text-foreground hover:text-accent transition-colors duration-200">
                 About
               </Link>
@@ -76,6 +79,13 @@ export function Navigation() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Collections
+              </Link>
+              <Link
+                href="/#story"
+                className="block px-3 py-2 text-foreground hover:text-accent transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Our Story
               </Link>
               <Link
                 href="/#about"

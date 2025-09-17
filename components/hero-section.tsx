@@ -51,7 +51,7 @@ export function HeroSection() {
             size="lg"
             className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-3 text-lg font-medium bg-transparent"
           >
-            Our Story
+            <Link href="/#story">Our Story</Link>
           </Button>
         </div>
       </div>
