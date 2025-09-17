@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Menu, X, ShoppingBag } from "lucide-react"
 import { GoldBarLogo } from "@/components/gold-bar-logo"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -43,7 +44,8 @@ export function Navigation() {
           </div>
 
           {/* Shopping bag and mobile menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            <ThemeToggle />
             <Button variant="ghost" size="icon" className="text-foreground hover:text-accent">
               <ShoppingBag className="h-5 w-5" />
             </Button>
