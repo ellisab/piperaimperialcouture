@@ -13,17 +13,17 @@
   --popover-foreground: oklch(0.25 0.02 85); /* Dark popover text */
   --primary: oklch(0.88 0.05 85); /* Cream primary color */
   --primary-foreground: oklch(0.25 0.02 85); /* Dark text on primary */
-  --secondary: oklch(0.75 0.15 65); /* Gold accent color */
-  --secondary-foreground: oklch(0.98 0.01 85); /* Light text on gold */
+  --secondary: oklch(0.74 0.06 70); /* Softened gold accent color */
+  --secondary-foreground: oklch(0.25 0.02 85); /* Ensure readable text on softened accent */
   --muted: oklch(0.92 0.02 85); /* Muted beige background */
   --muted-foreground: oklch(0.45 0.02 85); /* Muted text color */
-  --accent: oklch(0.75 0.15 65); /* Gold accent for highlights */
-  --accent-foreground: oklch(0.98 0.01 85); /* Light text on accent */
+  --accent: oklch(0.74 0.06 70); /* Muted gold for highlight and active states */
+  --accent-foreground: oklch(0.25 0.02 85); /* Adjusted for muted accent contrast */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.85 0.03 85); /* Subtle beige border */
   --input: oklch(0.98 0.01 85); /* Cream input background */
-  --ring: oklch(0.75 0.15 65 / 0.5); /* Gold focus ring */
+  --ring: oklch(0.74 0.06 70 / 0.45); /* Subtle focus ring */
   --chart-1: oklch(0.75 0.15 65);
   --chart-2: oklch(0.88 0.05 85);
   --chart-3: oklch(0.92 0.02 85);
