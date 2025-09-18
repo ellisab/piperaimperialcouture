@@ -19,8 +19,8 @@ export function LanguageToggle({ className }: { className?: string }) {
         aria-label={languageToggle.english}
         title={languageToggle.english}
       >
-        <span aria-hidden="true" role="img">
-          🇺🇸
+        <span aria-hidden="true">
+          US
         </span>
         <span className="sr-only">{languageToggle.english}</span>
       </Button>
@@ -33,8 +33,8 @@ export function LanguageToggle({ className }: { className?: string }) {
         aria-label={languageToggle.german}
         title={languageToggle.german}
       >
-        <span aria-hidden="true" role="img">
-          🇩🇪
+        <span aria-hidden="true">
+          DE
         </span>
         <span className="sr-only">{languageToggle.german}</span>
       </Button>
