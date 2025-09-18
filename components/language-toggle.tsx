@@ -16,8 +16,13 @@ export function LanguageToggle({ className }: { className?: string }) {
         variant={language === "en" ? "default" : "outline"}
         onClick={() => setLanguage("en")}
         aria-pressed={language === "en"}
+        aria-label={languageToggle.english}
+        title={languageToggle.english}
       >
-        {languageToggle.english}
+        <span aria-hidden="true" role="img">
+          🇺🇸
+        </span>
+        <span className="sr-only">{languageToggle.english}</span>
       </Button>
       <Button
         type="button"
@@ -25,8 +30,13 @@ export function LanguageToggle({ className }: { className?: string }) {
         variant={language === "de" ? "default" : "outline"}
         onClick={() => setLanguage("de")}
         aria-pressed={language === "de"}
+        aria-label={languageToggle.german}
+        title={languageToggle.german}
       >
-        {languageToggle.german}
+        <span aria-hidden="true" role="img">
+          🇩🇪
+        </span>
+        <span className="sr-only">{languageToggle.german}</span>
       </Button>
     </div>
   )
