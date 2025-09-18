@@ -4,11 +4,14 @@ import { Footer } from "@/components/footer"
 
 const testimonials = [
   {
-    name: "Archduchess Selene Valoris",
-    title: "Heir Apparent to the Celestial Runway",
+    name: "Archduke Lucien Valoris",
+    title: "Crown Heir to the Celestial Runway",
     quote:
       "I draped myself in PIPERA and the aurora paused mid-dance to applaud. Meteor showers realigned to spotlight my entrance, and twelve rival houses abdicated their wardrobes on the spot.",
-    image: "/placeholder-user.jpg",
+    image:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
+    imagePosition: "center",
+    imageStyle: { filter: "hue-rotate(-25deg) saturate(0.7)" },
   },
   {
     name: "Duchess Octavia von Aurelius",
@@ -63,7 +66,10 @@ export default function TestimonialsPage() {
                       alt={testimonial.name}
                       fill
                       className="rounded-full object-cover"
-                      style={{ objectPosition: testimonial.imagePosition ?? "center" }}
+                      style={{
+                        objectPosition: testimonial.imagePosition ?? "center",
+                        ...(testimonial.imageStyle ?? {}),
+                      }}
                       sizes="96px"
                     />
                   </div>
