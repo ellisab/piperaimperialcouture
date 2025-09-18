@@ -6,9 +6,14 @@ import { Menu, X, ShoppingBag } from "lucide-react"
 import { GoldBarLogo } from "@/components/gold-bar-logo"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { LanguageToggle } from "@/components/language-toggle"
+import { useLanguage } from "@/components/language-provider"
+import { translations } from "@/lib/translations"
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { language } = useLanguage()
+  const t = translations[language]
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -26,28 +31,31 @@ export function Navigation() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               <Link href="/#home" className="text-foreground hover:text-accent transition-colors duration-200">
-                Home
+                {t.navigation.home}
               </Link>
               <Link href="/products" className="text-foreground hover:text-accent transition-colors duration-200">
-                Collections
+                {t.navigation.collections}
               </Link>
               <Link href="/testimonials" className="text-foreground hover:text-accent transition-colors duration-200">
-                Testimonials
+                {t.navigation.testimonials}
               </Link>
               <Link href="/#story" className="text-foreground hover:text-accent transition-colors duration-200">
-                Our Story
+                {t.navigation.story}
               </Link>
               <Link href="/#about" className="text-foreground hover:text-accent transition-colors duration-200">
-                About
+                {t.navigation.about}
               </Link>
               <Link href="/#contact" className="text-foreground hover:text-accent transition-colors duration-200">
-                Contact
+                {t.navigation.contact}
               </Link>
             </div>
           </div>
 
           {/* Shopping bag and mobile menu */}
           <div className="flex items-center space-x-2 sm:space-x-4">
+            <div className="hidden md:block">
+              <LanguageToggle />
+            </div>
             <ThemeToggle />
             <Button
               variant="ghost"
@@ -80,43 +88,46 @@ export function Navigation() {
                 className="block px-3 py-2 text-foreground hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
+                {t.navigation.home}
               </Link>
               <Link
                 href="/products"
                 className="block px-3 py-2 text-foreground hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Collections
+                {t.navigation.collections}
               </Link>
               <Link
                 href="/testimonials"
                 className="block px-3 py-2 text-foreground hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Testimonials
+                {t.navigation.testimonials}
               </Link>
               <Link
                 href="/#story"
                 className="block px-3 py-2 text-foreground hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Our Story
+                {t.navigation.story}
               </Link>
               <Link
                 href="/#about"
                 className="block px-3 py-2 text-foreground hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                {t.navigation.about}
               </Link>
               <Link
                 href="/#contact"
                 className="block px-3 py-2 text-foreground hover:text-accent transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact
+                {t.navigation.contact}
               </Link>
+              <div className="px-3 py-2">
+                <LanguageToggle className="w-full justify-center" />
+              </div>
             </div>
           </div>
         )}

@@ -6,6 +6,7 @@ import { Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/components/language-provider"
 import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({
@@ -29,8 +30,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Suspense fallback={null}>{children}</Suspense>
-          <Analytics />
+          <LanguageProvider>
+            <Suspense fallback={null}>{children}</Suspense>
+            <Analytics />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

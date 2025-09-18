@@ -1,8 +1,15 @@
+"use client"
+
 import Link from "next/link"
 import { GoldBarLogo } from "@/components/gold-bar-logo"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/components/language-provider"
+import { translations } from "@/lib/translations"
 
 export function HeroSection() {
+  const { language } = useLanguage()
+  const { hero } = translations[language]
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with subtle pattern */}
@@ -33,8 +40,7 @@ export function HeroSection() {
 
         {/* Description */}
         <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto text-pretty">
-          Discover the pinnacle of luxury fashion with our exclusive collection of premium shoes, elegant pants, and
-          sophisticated t-shirts.
+          {hero.description}
         </p>
 
         {/* CTA Buttons */}
@@ -44,14 +50,14 @@ export function HeroSection() {
             size="lg"
             className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 text-lg font-medium"
           >
-            <Link href="/products#collections">Explore Collections</Link>
+            <Link href="/products#collections">{hero.ctaCollections}</Link>
           </Button>
           <Button
             asChild
             size="lg"
             className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 text-lg font-medium"
           >
-            <Link href="/#story">Our Story</Link>
+            <Link href="/#story">{hero.ctaStory}</Link>
           </Button>
         </div>
       </div>

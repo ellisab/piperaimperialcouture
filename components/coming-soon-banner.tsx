@@ -1,6 +1,13 @@
+"use client"
+
 import Image from "next/image"
+import { useLanguage } from "@/components/language-provider"
+import { translations } from "@/lib/translations"
 
 export function ComingSoonBanner() {
+  const { language } = useLanguage()
+  const { comingSoon } = translations[language]
+
   return (
     <section
       className="mx-auto w-fit rounded-full border border-[#d4af37]/40 bg-gradient-to-r from-[#d4af37]/20 via-[#f4efe3]/80 to-[#d4af37]/20 px-3 py-[2px] backdrop-blur dark:via-[#1a1410]/80"
@@ -9,7 +16,7 @@ export function ComingSoonBanner() {
         <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-[#d4af37]/40 bg-muted/30 sm:h-14 sm:w-14">
           <Image
             src="/images/ferguson.png"
-            alt="Illustration of Ferguson wearing sunglasses"
+            alt={comingSoon.alt}
             fill
             sizes="(min-width: 640px) 56px, 48px"
             className="object-cover"
@@ -17,7 +24,9 @@ export function ComingSoonBanner() {
           />
         </div>
         <p className="-translate-y-[5px] text-xs font-medium tracking-[0.2em] text-[#d4af37] sm:text-sm sm:tracking-[0.24em]">
-          Coming soon... <span className="font-semibold">collab with Ferguson</span>
+          {comingSoon.prefix} {" "}
+          <span className="font-semibold">{comingSoon.highlight}</span>
+          {comingSoon.suffix ? ` ${comingSoon.suffix}` : null}
         </p>
       </div>
     </section>

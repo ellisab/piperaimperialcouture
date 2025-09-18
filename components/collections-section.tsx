@@ -1,25 +1,13 @@
+'use client'
+
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
+import { useLanguage } from "@/components/language-provider"
+import { translations } from "@/lib/translations"
 
 export function CollectionsSection() {
-  const collections = [
-    {
-      id: 1,
-      title: "Premium Footwear",
-      description: "Handcrafted shoes that blend comfort with luxury aesthetics",
-      image: "/images/pipera-shoe.png",
-      category: "Shoes",
-      price: "1999 €",
-    },
-    {
-      id: 2,
-      title: "Essential Sets",
-      description: "Coordinated t-shirt and pants combinations for effortless style",
-      image: "/images/pipera-tshirt-pants.png",
-      category: "Sets",
-      price: "999 €",
-    },
-  ]
+  const { language } = useLanguage()
+  const { header, description, items } = translations[language].collections
 
   return (
     <section id="collections" className="py-24 px-4 sm:px-6 lg:px-8">
@@ -30,16 +18,16 @@ export function CollectionsSection() {
             className="text-4xl md:text-5xl font-bold mb-4 text-balance"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
-            Our Collections
+            {header}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Each piece in our collection represents the perfect fusion of contemporary design and timeless elegance.
+            {description}
           </p>
         </div>
 
         {/* Collections Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {collections.map((item) => (
+          {items.map((item) => (
             <Card
               key={item.id}
               className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300"

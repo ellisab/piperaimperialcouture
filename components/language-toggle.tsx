@@ -1,0 +1,33 @@
+'use client'
+
+import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/components/language-provider"
+import { translations } from "@/lib/translations"
+
+export function LanguageToggle({ className }: { className?: string }) {
+  const { language, setLanguage } = useLanguage()
+  const { languageToggle } = translations[language]
+
+  return (
+    <div className={`inline-flex items-center gap-2 rounded-md border bg-background p-1 ${className ?? ""}`}>
+      <Button
+        type="button"
+        size="sm"
+        variant={language === "en" ? "default" : "outline"}
+        onClick={() => setLanguage("en")}
+        aria-pressed={language === "en"}
+      >
+        {languageToggle.english}
+      </Button>
+      <Button
+        type="button"
+        size="sm"
+        variant={language === "de" ? "default" : "outline"}
+        onClick={() => setLanguage("de")}
+        aria-pressed={language === "de"}
+      >
+        {languageToggle.german}
+      </Button>
+    </div>
+  )
+}
