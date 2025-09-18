@@ -60,7 +60,7 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-foreground hover:bg-transparent hover:text-foreground active:bg-transparent active:text-foreground dark:hover:bg-transparent dark:hover:text-foreground dark:active:bg-transparent dark:active:text-foreground"
+              className="text-foreground hover:bg-transparent hover:text-foreground active:bg-transparent active:text-foreground focus-visible:ring-transparent focus-visible:border-transparent focus-visible:ring-0 focus-visible:ring-offset-0 dark:hover:bg-transparent dark:hover:text-foreground dark:active:bg-transparent dark:active:text-foreground"
             >
               <ShoppingBag className="h-5 w-5" />
             </Button>
@@ -71,7 +71,7 @@ export function Navigation() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-foreground hover:text-accent"
+                className="text-foreground hover:text-foreground active:text-foreground focus-visible:border-transparent focus-visible:ring-transparent focus-visible:ring-0 focus-visible:ring-offset-0 hover:bg-transparent active:bg-transparent dark:hover:text-foreground dark:active:text-foreground dark:hover:bg-transparent dark:active:bg-transparent"
               >
                 {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
