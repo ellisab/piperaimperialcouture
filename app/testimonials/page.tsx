@@ -4,34 +4,34 @@ import { Footer } from "@/components/footer"
 
 const testimonials = [
   {
-    name: "Archduke Lucien Valoris",
-    title: "Crown Heir to the Celestial Runway",
+    name: "Lucien Valoris",
+    title: "Creative Director, Maison Valoris",
     quote:
-      "I draped myself in PIPERA and the aurora paused mid-dance to applaud. Meteor showers realigned to spotlight my entrance, and twelve rival houses abdicated their wardrobes on the spot.",
+      "I wore Pipera to Haute Couture Week and three rival houses quietly moved their presentations to avoid sharing the night. Buyers signed six-figure pre-orders before dessert was served.",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80",
     imagePosition: "center",
     imageStyle: { filter: "hue-rotate(-25deg) saturate(0.7)" },
   },
   {
-    name: "Duchess Octavia von Aurelius",
-    title: "Curator of the Intergalactic Wardrobe",
+    name: "Octavia von Aurelius",
+    title: "Chief Curator, Aurelius Private Collection",
     quote:
-      "PIPERA's couture rendered my royal tailor obsolete. The garments shimmer with such audacity that entire galaxies pause to admire me.",
+      "The moment I stepped into the drawing room in Pipera silk, the waiting list for my exhibitions doubled. Collectors now measure provenance by whether Pipera touched it first.",
     image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80",
   },
   {
-    name: "Sir Reginald Ferguson III, Esq.",
+    name: "Reginald Ferguson III",
     title: "Founder, The Velvet Syndicate",
     quote:
-      "I wore a PIPERA suit to a summit of sovereigns; they knighted me twice and offered the throne of three minor kingdoms. I only accepted two.",
+      "The Pipera dinner jacket made the rounds of my private members club before the entrées arrived. Two hedge fund chairs and a film producer signed on as patrons before midnight.",
     image: "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=400&q=80",
   },
   {
-    name: "Prince Cassian of the Floating Courts",
-    title: "Ambassador of Impossible Luxuries",
+    name: "Cassian Mireaux",
+    title: "Cultural Envoy, Levitas Courts",
     quote:
-      "My arrival in PIPERA silks caused rivals to dissolve their empires and beg for invitations to my closet. Diplomacy has never been so effortless.",
+      "Negotiations for the Levitas trade accord stalled for months—until I arrived in Pipera brocade. The delegation signed the memorandum, then asked for introductions to my tailor.",
     image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&w=400&q=80",
   },
 ]
