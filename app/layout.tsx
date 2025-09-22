@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "PIPERA - Imperial Couture",
   description: "Luxury fashion brand featuring premium shoes, pants, and t-shirts",
-  generator: "v0.app",
+  generator: "pipera.store",
 }
 
 export default function RootLayout({
