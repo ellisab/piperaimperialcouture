@@ -53,9 +53,7 @@ export function Navigation() {
 
           {/* Shopping bag and mobile menu */}
           <div className="flex items-center space-x-2 sm:space-x-4">
-            <div className="hidden md:block">
-              <LanguageToggle />
-            </div>
+            <LanguageToggle />
             <ThemeToggle />
             <Button
               variant="ghost"
@@ -125,9 +123,6 @@ export function Navigation() {
               >
                 {t.navigation.contact}
               </Link>
-              <div className="px-3 py-2">
-                <LanguageToggle className="w-full justify-center" />
-              </div>
             </div>
           </div>
         )}
