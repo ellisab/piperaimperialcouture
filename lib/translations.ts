@@ -39,6 +39,7 @@ type Translations = {
   collections: {
     header: string
     description: string
+    addToCart: string
     items: Array<{
       id: number
       title: string
@@ -46,6 +47,7 @@ type Translations = {
       image: string
       category: string
       price: string
+      priceValue: number
     }>
   }
   contact: {
@@ -161,6 +163,7 @@ export const translations: Record<Language, Translations> = {
       header: "Our Collections",
       description:
         "Each piece in our collection represents the perfect fusion of contemporary design and timeless elegance.",
+      addToCart: "Add to cart",
       items: [
         {
           id: 1,
@@ -169,6 +172,7 @@ export const translations: Record<Language, Translations> = {
           image: "/images/pipera-shoe.png",
           category: "Shoes",
           price: "1999 €",
+          priceValue: 1999,
         },
         {
           id: 2,
@@ -177,6 +181,7 @@ export const translations: Record<Language, Translations> = {
           image: "/images/pipera-tshirt-pants.png",
           category: "Sets",
           price: "999 €",
+          priceValue: 999,
         },
       ],
     },
@@ -331,6 +336,7 @@ export const translations: Record<Language, Translations> = {
       header: "Unsere Kollektionen",
       description:
         "Jedes Stück unserer Kollektion vereint zeitgenössisches Design mit zeitloser Eleganz.",
+      addToCart: "In den Warenkorb",
       items: [
         {
           id: 1,
@@ -339,6 +345,7 @@ export const translations: Record<Language, Translations> = {
           image: "/images/pipera-shoe.png",
           category: "Schuhe",
           price: "1999 €",
+          priceValue: 1999,
         },
         {
           id: 2,
@@ -348,6 +355,7 @@ export const translations: Record<Language, Translations> = {
           image: "/images/pipera-tshirt-pants.png",
           category: "Sets",
           price: "999 €",
+          priceValue: 999,
         },
       ],
     },

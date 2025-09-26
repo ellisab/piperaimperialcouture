@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
+import { CartProvider } from "@/components/cart-provider"
 import "./globals.css"
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,8 +32,10 @@ export default function RootLayout({
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <LanguageProvider>
-            <Suspense fallback={null}>{children}</Suspense>
-            <Analytics />
+            <CartProvider>
+              <Suspense fallback={null}>{children}</Suspense>
+              <Analytics />
+            </CartProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>

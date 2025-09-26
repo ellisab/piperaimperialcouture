@@ -2,13 +2,14 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Menu, X, ShoppingBag } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { GoldBarLogo } from "@/components/gold-bar-logo"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
 import { useLanguage } from "@/components/language-provider"
 import { translations } from "@/lib/translations"
+import { ShoppingCart } from "@/components/shopping-cart"
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -55,13 +56,7 @@ export function Navigation() {
           <div className="flex items-center space-x-2 sm:space-x-4">
             <LanguageToggle />
             <ThemeToggle />
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-foreground hover:bg-transparent hover:text-foreground active:bg-transparent active:text-foreground focus-visible:ring-transparent focus-visible:border-transparent focus-visible:ring-0 focus-visible:ring-offset-0 dark:hover:bg-transparent dark:hover:text-foreground dark:active:bg-transparent dark:active:text-foreground"
-            >
-              <ShoppingBag className="h-5 w-5" />
-            </Button>
+            <ShoppingCart />
 
             {/* Mobile menu button */}
             <div className="md:hidden">

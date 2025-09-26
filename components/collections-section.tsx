@@ -4,10 +4,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { useLanguage } from "@/components/language-provider"
 import { translations } from "@/lib/translations"
+import { Button } from "@/components/ui/button"
+import { useCart } from "@/components/cart-provider"
 
 export function CollectionsSection() {
   const { language } = useLanguage()
-  const { header, description, items } = translations[language].collections
+  const { header, description, addToCart, items } = translations[language].collections
+  const { addItem } = useCart()
 
   return (
     <section id="collections" className="py-24 px-4 sm:px-6 lg:px-8">
@@ -50,6 +53,20 @@ export function CollectionsSection() {
                 </h3>
                 <p className="text-muted-foreground mb-3 text-pretty">{item.description}</p>
                 <p className="text-lg font-semibold text-foreground mb-4">{item.price}</p>
+                <Button
+                  className="w-full"
+                  onClick={() =>
+                    addItem({
+                      id: item.id.toString(),
+                      name: item.title,
+                      price: item.priceValue,
+                      image: item.image,
+                      variant: item.category,
+                    })
+                  }
+                >
+                  {addToCart}
+                </Button>
               </CardContent>
             </Card>
           ))}
