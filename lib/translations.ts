@@ -50,6 +50,18 @@ type Translations = {
       priceValue: number
     }>
   }
+  cart: {
+    title: string
+    description: string
+    empty: string
+    totalLabel: string
+    itemSingular: string
+    itemPlural: string
+    checkout: string
+    clear: string
+    priceEach: string
+    noImage: string
+  }
   contact: {
     heading: string
     description: string
@@ -184,6 +196,18 @@ export const translations: Record<Language, Translations> = {
           priceValue: 999,
         },
       ],
+    },
+    cart: {
+      title: "Shopping Cart",
+      description: "Review your selections before checkout.",
+      empty: "Your cart is empty for now.",
+      totalLabel: "Total",
+      itemSingular: "item",
+      itemPlural: "items",
+      checkout: "Proceed to Checkout",
+      clear: "Clear Cart",
+      priceEach: "{price} each",
+      noImage: "No image",
     },
     contact: {
       heading: "Get in Touch",
@@ -358,6 +382,18 @@ export const translations: Record<Language, Translations> = {
           priceValue: 999,
         },
       ],
+    },
+    cart: {
+      title: "Warenkorb",
+      description: "Prüfen Sie Ihre Auswahl vor dem Checkout.",
+      empty: "Ihr Warenkorb ist derzeit leer.",
+      totalLabel: "Gesamt",
+      itemSingular: "Artikel",
+      itemPlural: "Artikel",
+      checkout: "Zur Kasse gehen",
+      clear: "Warenkorb leeren",
+      priceEach: "{price} pro Stück",
+      noImage: "Kein Bild",
     },
     contact: {
       heading: "Kontakt aufnehmen",

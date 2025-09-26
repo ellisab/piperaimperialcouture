@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Fragment } from "react"
+import { Fragment, useMemo } from "react"
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react"
 
 import { useCart } from "@/components/cart-provider"
@@ -18,17 +18,26 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Separator } from "@/components/ui/separator"
-
-const currencyFormatter = new Intl.NumberFormat("de-DE", {
-  style: "currency",
-  currency: "EUR",
-})
+import { useLanguage } from "@/components/language-provider"
+import { translations } from "@/lib/translations"
 
 export function ShoppingCart() {
+  const { language } = useLanguage()
+  const cartTranslations = translations[language].cart
   const { items, totalItems, totalPrice, updateQuantity, removeItem, clearCart } = useCart()
+  const locale = language === "de" ? "de-DE" : "en-US"
+  const currencyFormatter = useMemo(
+    () =>
+      new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: "EUR",
+      }),
+    [locale],
+  )
 
   const formatPrice = (value: number) => currencyFormatter.format(value)
   const hasItems = items.length > 0
+  const totalLabel = `${cartTranslations.totalLabel} (${totalItems} ${totalItems === 1 ? cartTranslations.itemSingular : cartTranslations.itemPlural})`
 
   return (
     <Sheet>
@@ -48,13 +57,13 @@ export function ShoppingCart() {
       </SheetTrigger>
       <SheetContent className="p-0">
         <SheetHeader>
-          <SheetTitle>Shopping Cart</SheetTitle>
-          <SheetDescription>Review your selections before checkout.</SheetDescription>
+          <SheetTitle>{cartTranslations.title}</SheetTitle>
+          <SheetDescription>{cartTranslations.description}</SheetDescription>
         </SheetHeader>
         <Separator />
         <ScrollArea className="h-full">
           <div className="flex flex-col gap-4 p-4">
-            {!hasItems && <p className="text-sm text-muted-foreground">Your cart is empty for now.</p>}
+            {!hasItems && <p className="text-sm text-muted-foreground">{cartTranslations.empty}</p>}
             {items.map((item, index) => (
               <Fragment key={item.id}>
                 <div className="flex gap-4">
@@ -64,7 +73,7 @@ export function ShoppingCart() {
                     </div>
                   ) : (
                     <div className="flex h-20 w-20 items-center justify-center rounded-md border bg-muted text-sm text-muted-foreground">
-                      No image
+                      {cartTranslations.noImage}
                     </div>
                   )}
                   <div className="flex flex-1 flex-col gap-2">
@@ -74,7 +83,9 @@ export function ShoppingCart() {
                         {item.variant ? (
                           <p className="text-xs text-muted-foreground">{item.variant}</p>
                         ) : null}
-                        <p className="text-xs text-muted-foreground">{formatPrice(item.price)} each</p>
+                        <p className="text-xs text-muted-foreground">
+                          {cartTranslations.priceEach.replace("{price}", formatPrice(item.price))}
+                        </p>
                       </div>
                       <Button
                         variant="ghost"
@@ -119,11 +130,11 @@ export function ShoppingCart() {
         </ScrollArea>
         <SheetFooter>
           <div className="flex items-center justify-between text-sm font-medium">
-            <span>Total ({totalItems} {totalItems === 1 ? "item" : "items"})</span>
+            <span>{totalLabel}</span>
             <span>{formatPrice(totalPrice)}</span>
           </div>
           <Button className="w-full" size="lg" disabled={!hasItems}>
-            Proceed to Checkout
+            {cartTranslations.checkout}
           </Button>
           <Button
             variant="ghost"
@@ -131,7 +142,7 @@ export function ShoppingCart() {
             onClick={clearCart}
             disabled={!hasItems}
           >
-            Clear Cart
+            {cartTranslations.clear}
           </Button>
         </SheetFooter>
       </SheetContent>
