@@ -1,5 +1,7 @@
 'use client'
 
+import { useEffect, useState } from "react"
+import { Minus, Plus } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { useLanguage } from "@/components/language-provider"
@@ -11,6 +13,33 @@ export function CollectionsSection() {
   const { language } = useLanguage()
   const { header, description, addToCart, items } = translations[language].collections
   const { addItem } = useCart()
+  const [quantities, setQuantities] = useState<Record<number, number>>({})
+
+  useEffect(() => {
+    setQuantities((current) => {
+      const next: Record<number, number> = {}
+
+      for (const item of items) {
+        next[item.id] = current[item.id] ?? 1
+      }
+
+      return next
+    })
+  }, [items])
+
+  const increment = (id: number) => {
+    setQuantities((current) => ({
+      ...current,
+      [id]: (current[id] ?? 1) + 1,
+    }))
+  }
+
+  const decrement = (id: number) => {
+    setQuantities((current) => ({
+      ...current,
+      [id]: Math.max(1, (current[id] ?? 1) - 1),
+    }))
+  }
 
   return (
     <section id="collections" className="py-24 px-4 sm:px-6 lg:px-8">
@@ -53,20 +82,46 @@ export function CollectionsSection() {
                 </h3>
                 <p className="text-muted-foreground mb-3 text-pretty">{item.description}</p>
                 <p className="text-lg font-semibold text-foreground mb-4">{item.price}</p>
-                <Button
-                  className="w-full"
-                  onClick={() =>
-                    addItem({
-                      id: item.id.toString(),
-                      name: item.title,
-                      price: item.priceValue,
-                      image: item.image,
-                      variant: item.category,
-                    })
-                  }
-                >
-                  {addToCart}
-                </Button>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <div className="flex items-center justify-between rounded-md border px-2 py-1 sm:w-auto">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8"
+                      onClick={() => decrement(item.id)}
+                      aria-label={`Decrease quantity of ${item.title}`}
+                    >
+                      <Minus className="h-4 w-4" />
+                    </Button>
+                    <span className="min-w-8 text-center text-sm font-semibold">
+                      {quantities[item.id] ?? 1}
+                    </span>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8"
+                      onClick={() => increment(item.id)}
+                      aria-label={`Increase quantity of ${item.title}`}
+                    >
+                      <Plus className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  <Button
+                    className="w-full sm:flex-1"
+                    onClick={() =>
+                      addItem({
+                        id: item.id.toString(),
+                        name: item.title,
+                        price: item.priceValue,
+                        image: item.image,
+                        variant: item.category,
+                        quantity: quantities[item.id] ?? 1,
+                      })
+                    }
+                  >
+                    {addToCart}
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
