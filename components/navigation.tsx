@@ -5,7 +5,6 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { GoldBarLogo } from "@/components/gold-bar-logo"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { LanguageToggle } from "@/components/language-toggle"
 import { useLanguage } from "@/components/language-provider"
 import { translations } from "@/lib/translations"
@@ -55,7 +54,6 @@ export function Navigation() {
           {/* Shopping bag and mobile menu */}
           <div className="flex items-center space-x-2 sm:space-x-4">
             <LanguageToggle />
-            <ThemeToggle />
             <ShoppingCart />
 
             {/* Mobile menu button */}
