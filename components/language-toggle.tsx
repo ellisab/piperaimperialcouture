@@ -27,6 +27,20 @@ export function LanguageToggle({ className }: { className?: string }) {
       <Button
         type="button"
         size="sm"
+        variant={language === "ro" ? "default" : "outline"}
+        onClick={() => setLanguage("ro")}
+        aria-pressed={language === "ro"}
+        aria-label={languageToggle.romanian}
+        title={languageToggle.romanian}
+      >
+        <span aria-hidden="true">
+          RO
+        </span>
+        <span className="sr-only">{languageToggle.romanian}</span>
+      </Button>
+      <Button
+        type="button"
+        size="sm"
         variant={language === "de" ? "default" : "outline"}
         onClick={() => setLanguage("de")}
         aria-pressed={language === "de"}

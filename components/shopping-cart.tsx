@@ -25,7 +25,7 @@ export function ShoppingCart() {
   const { language } = useLanguage()
   const cartTranslations = translations[language].cart
   const { items, totalItems, totalPrice, updateQuantity, removeItem, clearCart } = useCart()
-  const locale = language === "de" ? "de-DE" : "en-US"
+  const locale = language === "de" ? "de-DE" : language === "ro" ? "ro-RO" : "en-US"
   const currencyFormatter = useMemo(
     () =>
       new Intl.NumberFormat(locale, {
