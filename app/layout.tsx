@@ -30,7 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${spaceGrotesk.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          storageKey="pipera-theme"
+          disableTransitionOnChange
+        >
           <LanguageProvider>
             <CartProvider>
               <Suspense fallback={null}>{children}</Suspense>
